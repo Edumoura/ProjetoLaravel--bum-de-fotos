@@ -12,4 +12,5 @@
 */
 
 Route::get('/', 'PostControlador@index');
+Route::post('/', 'PostControlador@store');
 

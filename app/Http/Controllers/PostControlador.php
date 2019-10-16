@@ -36,7 +36,13 @@ class PostControlador extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $posts = new Post();
+       $posts->email = $request->input('email');
+       $posts->mensagem = $request->input('mensagem');
+       $posts->arquivo = ''; //$request->input('arquivo');
+       $posts->save();
+       return redirect('/');
+
     }
 
     /**
