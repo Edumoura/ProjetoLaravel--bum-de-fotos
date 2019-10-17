@@ -36,10 +36,11 @@ class PostControlador extends Controller
      */
     public function store(Request $request)
     {
+       $path = $request->file('arquivo')->store('imagens', 'public');
        $posts = new Post();
        $posts->email = $request->input('email');
-       $posts->mensagem = $request->input('mensagem');
-       $posts->arquivo = ''; //$request->input('arquivo');
+       $posts->mensagem = $request->input('mensagem');  
+       $posts->arquivo = $path;     
        $posts->save();
        return redirect('/');
 
